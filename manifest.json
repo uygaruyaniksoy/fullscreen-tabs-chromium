@@ -1,0 +1,20 @@
+{
+  "name": "Getting Started Example",
+  "version": "1.0",
+  "content_scripts": [{
+    "js": [ "iframeInjector.js" ],
+    "matches": [
+      "<all_urls>"
+    ]
+  }],
+  "web_accessible_resources": ["content.html","content.js"],
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+  "manifest_version": 2
+}
