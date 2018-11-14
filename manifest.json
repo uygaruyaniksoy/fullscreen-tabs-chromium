@@ -1,5 +1,5 @@
 {
-  "name": "Getting Started Example",
+  "name": "Fullscreen Tabs View",
   "version": "1.0",
   "content_scripts": [{
     "js": [ "iframeInjector.js" ],
