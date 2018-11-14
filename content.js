@@ -24,6 +24,10 @@ chrome.runtime.onMessage.addListener(function(tabs, sender) {
     }
   } else {
     lastTabs = tabs;
+    chrome.tabs.getCurrent((i) => {
+      self = i;
+      highlight = self.index;
+    });
   }
   console.log(highlight);
   tabs = lastTabs;
