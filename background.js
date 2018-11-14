@@ -1,6 +1,3 @@
-// chrome.browserAction.onClicked.addListener(function(tab) {
-//   chrome.tabs.create({url:chrome.extension.getURL("tabs_api.html")});
-// });
 let sendTabsToClient = () => {
   chrome.tabs.getAllInWindow(function(res) {
     chrome.tabs.query({}, function(tabs) {

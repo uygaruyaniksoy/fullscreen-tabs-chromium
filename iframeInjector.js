@@ -10,6 +10,7 @@ iFrame.style.borderWidth="0";
 iFrame.style.padding="0";
 iFrame.style.top="-20px";
 
+
 document.addEventListener('keypress', (event) => {
   const keyName = event.key;
   if (event.key === "ı") {
@@ -19,9 +20,10 @@ document.addEventListener('keypress', (event) => {
       top = iFrame.style.top === "-20px" ? "0" : "-20px";
       chrome.storage.sync.set({"top": top }, () => chrome.runtime.sendMessage("toggle"));
     });
+  } else {
+    chrome.runtime.sendMessage(event.key);
   }
-  console.log(event);
-
+   //console.log(event);
 });
 
 document.body.insertBefore(iFrame, document.body.firstChild);
