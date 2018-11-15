@@ -8,17 +8,17 @@ chrome.storage.sync.get(function (data) { iFrame.style.top = data.top || "-20px"
 iFrame.style.zIndex="9999";
 iFrame.style.borderWidth="0";
 iFrame.style.padding="0";
-iFrame.style.top="-20px";
+iFrame.style.top="0";
+iFrame.style.left="0";
 
 
 document.addEventListener('keypress', (event) => {
   const keyName = event.key;
   if (event.key === "ı") {
-    var top;
+    var show;
     chrome.storage.sync.get(function (data) {
-      top = data.top;
-      top = iFrame.style.top === "-20px" ? "0" : "-20px";
-      chrome.storage.sync.set({"top": top }, () => chrome.runtime.sendMessage("toggle"));
+      show = data.show || false;
+      chrome.storage.sync.set({"show": !show }, () => chrome.runtime.sendMessage("toggle"));
     });
   } else {
     chrome.runtime.sendMessage(event.key);
@@ -31,7 +31,7 @@ document.body.insertBefore(iFrame, document.body.firstChild);
 chrome.runtime.onMessage.addListener(function(msg) {
   if (msg === "toggle") {
     chrome.storage.sync.get(function (data) {
-      iFrame.style.top = data.top;
+      iFrame.style.height = data.show ? "20px" : "0px";
     });
   }
 })

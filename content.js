@@ -68,7 +68,17 @@ chrome.runtime.onMessage.addListener(function(tabs, sender) {
   te.style.color = "white";
   te.style.verticalAlign = "bottom";
   te.style.display = "inline-block";
-  te.style.display = "inline-block";
   te.innerText = "" + tabs[highlight].title;
   div.appendChild(te);
+
+  var le = document.createElement("div")
+  le.className = "title"
+  le.style.height = "20px";
+  le.style.textAlign = "center";
+  le.style.color = "white";
+  le.style.verticalAlign = "bottom";
+  le.style.display = "inline-block";
+  le.style.float = "right";
+  le.innerText = "" + self.url;
+  div.appendChild(le);
 })
